@@ -129,7 +129,7 @@ legacyForge {
 }
 jar {
     manifest.attributes([
-            "MixinConfigs": "examplemod.mixins.json"
+            "MixinConfigs": "gthcore.mixins.json"
     ])
 }
 
@@ -157,12 +157,15 @@ dependencies {
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    implementation ("curse.maven:re-avaritia-623969:6418092")
+    implementation ("curse.maven:applied-energistics-2-223794:6852919")
+    implementation ("curse.maven:guideme-1173950:6679102")
 }
 
 // See com.example.examplemod.mixin.DummyMixin for information about mixins
 mixin {
-    add sourceSets.main, "mixins.${mod_id}.refmap.json"
-    config "${mod_id}.mixins.json"
+
 }
 
 tasks.named('processResources', ProcessResources).configure {
